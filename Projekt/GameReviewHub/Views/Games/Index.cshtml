@@ -1,63 +1,95 @@
 @model IEnumerable<GameReviewHub.Models.Game>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Games";
 }
 
-<h1>Index</h1>
+<h1 class="mb-4">🎮 Game Library</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<form asp-action="Index" method="get" class="mb-4">
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text"
+                   name="searchString"
+                   class="form-control"
+                   placeholder="Search by title or studio..." />
+        </div>
+
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-dark">
+                Search
+            </button>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-action="Create" class="btn btn-success">
+                + Add Game
+            </a>
+        </div>
+    </div>
+</form>
+
+<table class="table table-dark table-hover align-middle">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Studio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseYear)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
+            <th>Title</th>
+            <th>Studio</th>
+            <th>Year</th>
+            <th>Rating</th>
+            <th>Description</th>
+            <th>Genre</th>
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                <strong>@item.Title</strong>
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Studio)
+                @item.Studio
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.ReleaseYear)
+                @item.ReleaseYear
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Rating)
+                <span class="badge bg-warning text-dark">
+                    ⭐ @item.Rating
+                </span>
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @item.Description
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Genre.Id)
+                @item.Genre?.Name
             </td>
+
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit"
+                   asp-route-id="@item.Id"
+                   class="btn btn-sm btn-primary">
+                    Edit
+                </a>
+
+                <a asp-action="Details"
+                   asp-route-id="@item.Id"
+                   class="btn btn-sm btn-info">
+                    Details
+                </a>
+
+                <a asp-action="Delete"
+                   asp-route-id="@item.Id"
+                   class="btn btn-sm btn-danger">
+                    Delete
+                </a>
             </td>
         </tr>
 }

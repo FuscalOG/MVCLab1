@@ -35,24 +35,24 @@ Projekt wykorzystuje bazę danych SQLite oraz Entity Framework Core.
 # Funkcjonalności
 
 ## Gry
--dodawanie gier,
--edycja gier,
--usuwanie gier,
--podgląd szczegółów gry,
--wyszukiwanie gier.
+-dodawanie gier
+-edycja gier
+-usuwanie gier
+-podgląd szczegółów gry
+-wyszukiwanie gier
 
 ## Recenzje
--dodawanie recenzji,
--edycja recenzji,
--usuwanie recenzji,
--przypisywanie recenzji do konkretnej gry.
+-dodawanie recenzji
+-edycja recenzji
+-usuwanie recenzji
+-przypisywanie recenzji do konkretnej gry
 
 ## Dodatkowe funkcjonalności
--walidacja formularzy,
--relacje między modelami,
--wykorzystanie bazy danych SQLite,
--stylizacja Bootstrap,
--wyszukiwarka gier.
+-walidacja formularzy
+-relacje między modelami
+-wykorzystanie bazy danych SQLite
+-stylizacja Bootstrap
+-wyszukiwarka gier
 
 ---
 
